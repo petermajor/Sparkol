@@ -65,6 +65,9 @@ namespace Sparkol.Android
 			// aapt resource value: 0x7f040000
 			public const int MvxBindingTagUnique = 2130968576;
 			
+			// aapt resource value: 0x7f040001
+			public const int listPosts = 2130968577;
+			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -79,7 +82,10 @@ namespace Sparkol.Android
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int View_Posts = 2130903040;
+			public const int Item_Post = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int View_Posts = 2130903041;
 			
 			static Layout()
 			{

@@ -16,4 +16,3 @@ namespace Sparkol.Android.Views
 		}
 	}
 }
-

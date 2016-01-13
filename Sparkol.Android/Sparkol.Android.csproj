@@ -85,6 +85,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\View_Posts.axml" />
     <AndroidResource Include="Resources\values\MvxBindingAttributes.xml" />
+    <AndroidResource Include="Resources\layout\Item_Post.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
