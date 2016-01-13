@@ -9,7 +9,7 @@ namespace Sparkol.Core.Mappers
 		{
 			return new PostViewModel {
 				Title = post.Title,
-				InitialPostingDate = post.PubDate.LocalDateTime.ToString("g"),
+				PublicationDate = post.PubDate.LocalDateTime.ToString("g"),
 				Description = post.Description,
 				Link = post.Link,
 			};

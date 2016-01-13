@@ -1,5 +1,4 @@
 ﻿using PropertyChanged;
-using Sparkol.Core.Models;
 
 namespace Sparkol.Core.ViewModels
 {
@@ -8,7 +7,7 @@ namespace Sparkol.Core.ViewModels
 	{
 		public string Title { get; set; }
 
-		public string InitialPostingDate { get; set; }
+		public string PublicationDate { get; set; }
 
 		public string Description { get; set; }
 

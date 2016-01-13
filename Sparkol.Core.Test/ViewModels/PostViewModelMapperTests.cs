@@ -29,7 +29,7 @@ namespace Sparkol.Core.Test.ViewModels
 				Title = post.Title,
 				Description = post.Description,
 				Link = post.Link,
-				InitialPostingDate = new DateTime(2016, 1, 13, 11, 20, 08, DateTimeKind.Local).ToString ("g")
+				PublicationDate = new DateTime(2016, 1, 13, 11, 20, 08, DateTimeKind.Local).ToString ("g")
 			};
 
 			model.ShouldBeEquivalentTo(expected);
@@ -46,7 +46,7 @@ namespace Sparkol.Core.Test.ViewModels
 				Title = post.Title,
 				Description = post.Description,
 				Link = post.Link,
-				InitialPostingDate = new DateTime(2016, 1, 13, 12, 20, 08, DateTimeKind.Local).ToString ("g")
+				PublicationDate = new DateTime(2016, 1, 13, 12, 20, 08, DateTimeKind.Local).ToString ("g")
 			};
 
 			model.ShouldBeEquivalentTo(expected);
