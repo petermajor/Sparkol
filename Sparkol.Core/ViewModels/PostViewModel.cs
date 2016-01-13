@@ -10,5 +10,7 @@ namespace Sparkol.Core.ViewModels
 		public string InitialPostingDate { get; set; }
 
 		public string Description { get; set; }
+
+		public string Link { get; set; }
 	}
 }
