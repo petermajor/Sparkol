@@ -70,6 +70,7 @@
     <Compile Include="Setup.cs" />
     <Compile Include="Views\PostsView.cs" />
     <Compile Include="Commands\OpenLinkCommand.cs" />
+    <Compile Include="Converters\TextToSpannableValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -94,6 +95,7 @@
     <Folder Include="Resources\layout\" />
     <Folder Include="Views\" />
     <Folder Include="Commands\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
