@@ -1,4 +1,5 @@
 ﻿using PropertyChanged;
+using Sparkol.Core.Models;
 
 namespace Sparkol.Core.ViewModels
 {

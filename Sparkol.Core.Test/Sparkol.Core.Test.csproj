@@ -54,18 +54,40 @@
     <Reference Include="RichardSzalay.MockHttp">
       <HintPath>..\packages\RichardSzalay.MockHttp.1.2.1\lib\net45\RichardSzalay.MockHttp.dll</HintPath>
     </Reference>
+    <Reference Include="Cirrious.CrossCore.Wpf">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\net45\Cirrious.CrossCore.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\net45\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\net45\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Wpf">
+      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.5.1\lib\net45\Cirrious.MvvmCross.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross">
+      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.5.1\lib\net45\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Test.Core">
+      <HintPath>..\packages\MvvmCross.HotTuna.Tests.3.5.1\lib\net45\Cirrious.MvvmCross.Test.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\PostsParserTests.cs" />
     <Compile Include="Commands\GetPostsCommandTests.cs" />
+    <Compile Include="ViewModels\PostsViewModelTests.cs" />
+    <Compile Include="ViewModels\PostViewModelMapperTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Commands\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sparkol.Core\Sparkol.Core.csproj">

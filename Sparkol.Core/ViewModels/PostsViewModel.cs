@@ -1,8 +1,10 @@
-﻿using Cirrious.MvvmCross.ViewModels;
-using PropertyChanged;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Cirrious.MvvmCross.ViewModels;
+using PropertyChanged;
 using Sparkol.Core.Commands;
+using Sparkol.Core.Mappers;
 
 namespace Sparkol.Core.ViewModels
 {
@@ -13,29 +15,36 @@ namespace Sparkol.Core.ViewModels
 
 		public ICommand ShowPostCommand { get; private set; }
 
+		readonly IGetPostsCommand _getPostsCommand;
+
 		readonly IOpenLinkCommand _openLinkCommand;
 
-		public PostsViewModel(IOpenLinkCommand openLinkCommand)
+		readonly IPostViewModelMapper _postMapper;
+
+		public PostsViewModel(IGetPostsCommand getPostsCommand, IOpenLinkCommand openLinkCommand, IPostViewModelMapper postMapper)
 		{
+			_getPostsCommand = getPostsCommand;
 			_openLinkCommand = openLinkCommand;
+			_postMapper = postMapper;
 
 			ShowPostCommand = new MvxCommand<PostViewModel> (ExecuteShowPostCommand);
+		}
 
-			Posts.Add (new PostViewModel {
-				Title = "David Bowie’s wonderful way of handling the thrill of live performance",
-				InitialPostingDate = "Wed, 13 Jan 2016 11:20",
-				Link = @"http://www.sparkol.com/engage/david-bowies-wonderful-way-of-handling-the-thrill-of-live-performance/",
-				Description = @"<p>It's sad whenever somebody you admire dies. But the many wonderful things you then learn about them can temper that sadness. Here's something new I enjoyed learning about David Bowie.</p>
-<p>The post <a rel=""nofollow"" href=""http://www.sparkol.com/engage/david-bowies-wonderful-way-of-handling-the-thrill-of-live-performance/"">David Bowie’s wonderful way of handling the thrill of live performance</a> appeared first on <a rel=""nofollow"" href=""http://www.sparkol.com"">Sparkol</a>.</p>",
-			});
+		public Task Init()
+		{
+			return LoadPosts ();
+		}
 
-			Posts.Add (new PostViewModel {
-				Title = "8 Extremely inspiring words for public speakers",
-				InitialPostingDate = "Wed, 13 Jan 2016 09:27",
-				Link = "http://www.sparkol.com/engage/8-extremely-inspiring-words-for-public-speakers/",
-				Description = @"<p>Communicating well – whether it's with your co-workers, customers or followers – isn't always easy. Discover these 8 powerful words and knock your audience's socks off.</p>
-<p>The post <a rel=""nofollow"" href=""http://www.sparkol.com/engage/8-extremely-inspiring-words-for-public-speakers/"">8 Extremely inspiring words for public speakers</a> appeared first on <a rel=""nofollow"" href=""http://www.sparkol.com"">Sparkol</a>.</p>",
-			});
+		async Task LoadPosts()
+		{
+			var posts = await _getPostsCommand.Execute ();
+
+			Posts.Clear ();
+
+			foreach (var post in posts) {
+				var model = _postMapper.Map (post);
+				Posts.Add (model);
+			}
 		}
 
 		void ExecuteShowPostCommand (PostViewModel post)

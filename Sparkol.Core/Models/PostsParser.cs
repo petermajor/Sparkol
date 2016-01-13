@@ -19,6 +19,7 @@ namespace Sparkol.Core.Models
 				{
 					Title = (string)item.Element("title"),
 					Description = (string)item.Element("description"),
+					Link = (string)item.Element("link"),
 					PubDate = (DateTime)item.Element("pubDate")
 				};
 

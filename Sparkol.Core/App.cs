@@ -1,5 +1,8 @@
 ﻿using Cirrious.MvvmCross.ViewModels;
 using Sparkol.Core.ViewModels;
+using Cirrious.CrossCore.IoC;
+using Cirrious.CrossCore;
+using System.Net.Http;
 
 namespace Sparkol.Core
 {
@@ -9,10 +12,32 @@ namespace Sparkol.Core
 		{
 			base.Initialize();
 
-			InitialiseStartNavigation();
+			RegisterTypes ();
+
+			InitializeNavigation();
 		}
 
-		void InitialiseStartNavigation()
+		void RegisterTypes()
+		{
+			CreatableTypes ()
+				.InNamespace ("Sparkol.Core.Commands")
+				.AsInterfaces ()
+				.RegisterAsLazySingleton ();
+
+			CreatableTypes ()
+				.InNamespace ("Sparkol.Core.Mappers")
+				.AsInterfaces ()
+				.RegisterAsLazySingleton ();
+			
+			CreatableTypes ()
+				.InNamespace ("Sparkol.Core.Models")
+				.AsInterfaces ()
+				.RegisterAsLazySingleton ();
+
+			Mvx.RegisterSingleton<HttpMessageHandler>(new HttpClientHandler());
+		}
+
+		void InitializeNavigation()
 		{
 			RegisterAppStart<PostsViewModel>();
 		}

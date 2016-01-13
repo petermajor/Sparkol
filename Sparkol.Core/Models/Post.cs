@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Xml.Serialization;
-using System.Collections.Generic;
 
 namespace Sparkol.Core.Models
 {
@@ -11,5 +9,7 @@ namespace Sparkol.Core.Models
 		public DateTimeOffset PubDate { get; set; }
 
 		public string Description { get; set; }
+
+		public string Link { get; set; }
 	}
 }
